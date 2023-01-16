@@ -1,0 +1,64 @@
+{
+    "departures": [
+      {
+        "flight_number": "SU101",
+        "destination": "Moscow",
+        "date": "2022-07-01",
+        "time": "09:00"
+      },
+      {
+        "flight_number": "SU102",
+        "destination": "Saint Petersburg",
+        "date": "2022-07-01",
+        "time": "11:00"
+      },
+      {
+        "flight_number": "SU103",
+        "destination": "Kiev",
+        "date": "2022-07-02",
+        "time": "13:00"
+      },
+      {
+        "flight_number": "SU104",
+        "destination": "Minsk",
+        "date": "2022-07-02",
+        "time": "15:00"
+      },
+      {
+        "flight_number": "SU105",
+        "destination": "Tbilisi",
+        "date": "2022-07-03",
+        "time": "17:00"
+      },
+      {
+        "flight_number": "SU106",
+        "destination": "Baku",
+        "date": "2022-07-03",
+        "time": "19:00"
+      },
+      {
+        "flight_number": "SU107",
+        "destination": "Almaty",
+        "date": "2022-07-04",
+        "time": "21:00"
+      },
+      {
+        "flight_number": "SU108",
+        "destination": "Ashgabat",
+        "date": "2022-07-04",
+        "time": "23:00"
+      },
+      {
+        "flight_number": "SU109",
+        "destination": "Dushanbe",
+        "date": "2022-07-05",
+        "time": "01:00"
+      },
+      {
+        "flight_number": "SU110",
+        "destination": "Bishkek",
+        "date": "2022-07-05",
+        "time": "03:00"
+      }
+    ]
+  }
