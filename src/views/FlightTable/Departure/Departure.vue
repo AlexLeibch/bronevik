@@ -5,6 +5,9 @@
       :key="departure.id"
       :arrival="departure"
     ></flight>
+    <tr v-if="isResultExist && !GET_LOADER_STATUS">
+      <td class="search-empty-result" colspan="3">Ничего не найдено</td>
+    </tr>
   </tbody>
 </template>
 
@@ -24,7 +27,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["GET_DEPARTURES", "GET_SEARCH_QUERY"]),
+    ...mapGetters(["GET_DEPARTURES", "GET_SEARCH_QUERY", "GET_LOADER_STATUS"]),
     filteredFlights() {
       if (this.GET_SEARCH_QUERY === "") {
         return this.GET_DEPARTURES;
@@ -37,8 +40,19 @@ export default {
         );
       });
     },
+    isResultExist() {
+      return this.filteredFlights.length ? false : true;
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search-empty-result {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 4rem;
+  color: black;
+  font-weight: bold;
+}
+</style>

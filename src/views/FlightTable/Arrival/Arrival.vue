@@ -1,18 +1,13 @@
 <template>
   <tbody>
-    <template v-if="filteredFlights.length">
-      <flight
-        v-for="arrival in filteredFlights"
-        :key="arrival.id"
-        :arrival="arrival"
-      ></flight>
-    </template>
-    <template v-else>
-      <tr>
-        <td colspan="4" class="search_result">Рейсов не найено</td>
-      </tr>
-      <tr></tr>
-    </template>
+    <flight
+      v-for="arrival in filteredFlights"
+      :key="arrival.id"
+      :arrival="arrival"
+    ></flight>
+    <tr v-if="isResultExist && !GET_LOADER_STATUS">
+      <td class="search-empty-result" colspan="3">Ничего не найдено</td>
+    </tr>
   </tbody>
 </template>
 
@@ -34,7 +29,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["GET_ARRIVALS", "GET_SEARCH_QUERY"]),
+    ...mapGetters(["GET_ARRIVALS", "GET_SEARCH_QUERY", "GET_LOADER_STATUS"]),
     filteredFlights() {
       if (this.GET_SEARCH_QUERY === "") {
         return this.GET_ARRIVALS;
@@ -47,12 +42,15 @@ export default {
         );
       });
     },
+    isResultExist() {
+      return this.filteredFlights.length ? false : true;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.search_result {
+.search-empty-result {
   text-align: center;
   padding-top: 2rem;
   font-size: 4rem;

@@ -13,9 +13,13 @@ const store = new Vuex.Store({
       SEARCH_QUERY: "",
       ADMIN_RIGHTS: false,
       POPUP_STATUS: false,
+      LOADER: false,
     };
   },
   mutations: {
+    SET_LOADER(state, data) {
+      state.LOADER = data;
+    },
     SET_ARRIVALS(state, data) {
       state.ARRIVALS = data;
     },
@@ -59,20 +63,41 @@ const store = new Vuex.Store({
     },
   },
   actions: {
-    async FETCH_ARRIVALS({ commit }, { data, time = 0 }) {
-      let api = new Api(data, time);
-      const response = await api.mockData(data, time);
-      commit("SET_ARRIVALS", response.arrivals);
-      return response;
+    async FETCH_ARRIVALS({ commit, state }, { data, time = 0 }) {
+      try {
+        if (!state.ARRIVALS.length) {
+          commit("SET_LOADER", true);
+        }
+        let api = new Api(data, time);
+        const response = await api.mockData(data, time);
+        commit("SET_ARRIVALS", response.arrivals);
+        return response;
+      } catch (err) {
+        console.log(err);
+      } finally {
+        commit("SET_LOADER", false);
+      }
     },
-    async FETCH_DEPARTURES({ commit }, { data, time = 0 }) {
-      let api = new Api(data, time);
-      const response = await api.mockData(data, time);
-      commit("SET_DEPARTURES", response.departures);
-      return response;
+    async FETCH_DEPARTURES({ commit, state }, { data, time = 0 }) {
+      try {
+        if (!state.DEPARTURES.length) {
+          commit("SET_LOADER", true);
+        }
+        let api = new Api(data, time);
+        const response = await api.mockData(data, time);
+        commit("SET_DEPARTURES", response.departures);
+        return response;
+      } catch (err) {
+        console.log(err);
+      } finally {
+        commit("SET_LOADER", false);
+      }
     },
   },
   getters: {
+    GET_LOADER_STATUS(state) {
+      return state.LOADER;
+    },
     GET_ARRIVALS(state) {
       return state.ARRIVALS;
     },

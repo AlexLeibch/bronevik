@@ -9,7 +9,7 @@
       <span>Вылет</span>
     </div>
     <div class="control__admin-panel">
-      <div class="control__button-toggle-adimn">
+      <div class="control__button-toggle-adimn" v-if="isFlightTable">
         <label class="control__input-label" for="control"
           >{{ setTitle }} Админ - панель</label
         >
@@ -40,6 +40,12 @@ export default {
       isOpenPopup: false,
       isAdmin: false,
     };
+  },
+  props: {
+    isFlightTable: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     ...mapGetters(["GET_ADMIN_RIGHTS"]),

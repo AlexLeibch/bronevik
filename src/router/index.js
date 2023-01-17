@@ -6,6 +6,8 @@ import Arrival from "../views/FlightTable/Arrival/Arrival.vue";
 import store from "@/store";
 import arrivals from "../mock/arrival.json";
 import departures from "../mock/departure.json";
+import Main from "../views/Default.vue";
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter);
 
@@ -15,8 +17,8 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      name: "FlightTable",
-      component: FlightTable,
+      name: "",
+      component: Main,
     },
     {
       path: "/flight_table",
@@ -29,10 +31,13 @@ const router = new VueRouter({
           component: Arrival,
           beforeEnter: (to, from, next) => {
             const storedArrivals = JSON.parse(localStorage.getItem("arrivals"));
-            if (storedArrivals.length) {
+            if (storedArrivals && storedArrivals.length) {
               store.commit("SET_ARRIVALS", storedArrivals);
             } else {
-              store.dispatch("FETCH_ARRIVALS", { data: arrivals, time: 1000 });
+              store.dispatch("FETCH_ARRIVALS", {
+                data: arrivals,
+                time: 1000,
+              });
             }
 
             next();
@@ -46,18 +51,27 @@ const router = new VueRouter({
             const storedDepartures = JSON.parse(
               localStorage.getItem("departures")
             );
-            if (storedDepartures.length) {
+            if (storedDepartures && storedDepartures.length) {
               store.commit("SET_DEPARTURES", storedDepartures);
             } else {
               store.dispatch("FETCH_DEPARTURES", {
                 data: departures,
-                time: 500,
+                time: 2000,
               });
             }
             next();
           },
         },
       ],
+    },
+    {
+      path: "/404",
+      name: "404",
+      component: NotFound,
+    },
+    {
+      path: "*",
+      redirect: "/404",
     },
   ],
 });

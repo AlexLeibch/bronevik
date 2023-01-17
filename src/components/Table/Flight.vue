@@ -15,7 +15,6 @@
           />
           <img
             @click="setIsEdit"
-            v-if="!editMode"
             class="table-info__edit-button"
             src="../../assets/edit_icon.svg"
           />
@@ -25,26 +24,15 @@
     <template v-else>
       <td>
         <div class="table-info__input-edit-time-and-date">
-          <input type="time" v-model="time" required ref="inputTime" />
-          <input type="date" v-model="date" required ref="inputDate" />
+          <input type="time" v-model="time" />
+          <input type="date" v-model="date" />
         </div>
       </td>
       <td>
-        <input
-          class="table-info"
-          type="text"
-          v-model="number"
-          minlength="4"
-          ref="inputNumber"
-        />
+        <input class="table-info" type="text" v-model="number" />
       </td>
       <td>
-        <input
-          type="text"
-          v-model="destination"
-          minlength="3"
-          ref="inputDestination"
-        />
+        <input type="text" v-model="destination" />
         <div class="table-info__admin-panel" v-if="GET_ADMIN_RIGHTS">
           <img
             class="table-info__save-button"
@@ -103,11 +91,11 @@ export default {
       this.editMode = !this.editMode;
     },
     checkValidity() {
-       const validity = Boolean(
+      const validity = Boolean(
         this.time && this.date && this.number && this.destination
       );
       if (!validity) {
-        alert('Заполните все поля!')
+        alert("Заполните все поля!");
         return false;
       }
       return true;
@@ -149,7 +137,7 @@ td {
   .table-info__admin-panel {
     position: absolute;
     right: 2px;
-    top: 5px;
+    top: 0px;
     cursor: pointer;
 
     img:hover {
@@ -160,6 +148,10 @@ td {
   .table-info__input-edit-time-and-date {
     display: flex;
     flex-direction: column;
+
+    input:first-child {
+      margin-bottom: 0.4rem;
+    }
   }
 }
 </style>

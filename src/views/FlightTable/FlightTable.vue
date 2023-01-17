@@ -1,11 +1,14 @@
 <template>
   <div class="wrapper">
-    <flight-header></flight-header>
+    <flight-header :isFlightTable="true"></flight-header>
     <search></search>
     <button class="save-button" @click="saveData">Сохранить данные</button>
     <table class="flight-table">
       <header-table :title="title"></header-table>
       <router-view></router-view>
+      <tr v-if="GET_LOADER_STATUS">
+        <td colspan="3"><loader></loader></td>
+      </tr>
     </table>
     <flight-popup v-if="GET_POPUP_STATUS"></flight-popup>
   </div>
@@ -17,12 +20,14 @@ import Search from "../../components/Search.vue";
 import FlightHeader from "../../components/Header.vue";
 import { mapGetters, mapMutations } from "vuex";
 import FlightPopup from "../../components/AddFlightPopup.vue";
+import Loader from "../../components/Primitive/Loader.vue";
 export default {
   components: {
     HeaderTable,
     Search,
     FlightHeader,
     FlightPopup,
+    Loader,
   },
   data() {
     return {
@@ -30,7 +35,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["GET_POPUP_STATUS", "GET_ARRIVALS", "GET_DEPARTURES"]),
+    ...mapGetters([
+      "GET_POPUP_STATUS",
+      "GET_ARRIVALS",
+      "GET_DEPARTURES",
+      "GET_LOADER_STATUS",
+    ]),
   },
   methods: {
     ...mapMutations(["SET_ADMIN_ROLE"]),
