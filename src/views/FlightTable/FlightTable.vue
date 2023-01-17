@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import HeaderTable from "../components/TableHeader.vue";
-import Search from "../components/Search.vue";
-import FlightHeader from "../components/Header.vue";
+import HeaderTable from "../../components/Table/TableHeader.vue";
+import Search from "../../components/Search.vue";
+import FlightHeader from "../../components/Header.vue";
 import { mapGetters, mapMutations } from "vuex";
-import FlightPopup from "../components/FlightPopup.vue";
+import FlightPopup from "../../components/AddFlightPopup.vue";
 export default {
   components: {
     HeaderTable,

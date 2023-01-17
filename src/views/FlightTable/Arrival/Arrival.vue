@@ -1,15 +1,23 @@
 <template>
   <tbody>
-    <flight
-      v-for="arrival in filteredFlights"
-      :key="arrival.id"
-      :arrival="arrival"
-    ></flight>
+    <template v-if="filteredFlights.length">
+      <flight
+        v-for="arrival in filteredFlights"
+        :key="arrival.id"
+        :arrival="arrival"
+      ></flight>
+    </template>
+    <template v-else>
+      <tr>
+        <td colspan="4" class="search_result">Рейсов не найено</td>
+      </tr>
+      <tr></tr>
+    </template>
   </tbody>
 </template>
 
 <script>
-import Flight from "./Flight.vue";
+import Flight from "../../../components/Table/Flight.vue";
 import { mapGetters } from "vuex";
 export default {
   components: {
@@ -43,4 +51,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search_result {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 4rem;
+  color: black;
+  font-weight: bold;
+}
+</style>

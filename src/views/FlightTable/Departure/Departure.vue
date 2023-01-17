@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Flight from "./Flight.vue";
+import Flight from "../../../components/Table/Flight.vue";
 import { mapGetters } from "vuex";
 export default {
   components: {

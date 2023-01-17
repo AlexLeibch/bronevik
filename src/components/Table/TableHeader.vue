@@ -34,7 +34,7 @@ export default {
     text-align: left;
     vertical-align: bottom;
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: bold;
     color: #313436;
     background-color: hsla(0, 0%, 84.7%, 0.26);
   }

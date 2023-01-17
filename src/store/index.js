@@ -45,6 +45,18 @@ const store = new Vuex.Store({
         (flight) => flight.id !== data.id
       );
     },
+    UPDATE_ARRIVAL_FLIGHT(state, data) {
+      const index = state.ARRIVALS.findIndex(
+        (arrival) => arrival.id === data.id
+      );
+      state.ARRIVALS.splice(index, 1, data);
+    },
+    UPDATE_DEPARTURE_FLIGHT(state, data) {
+      const index = state.DEPARTURES.findIndex(
+        (departure) => departure.id === data.id
+      );
+      state.DEPARTURES.splice(index, 1, data);
+    },
   },
   actions: {
     async FETCH_ARRIVALS({ commit }, { data, time = 0 }) {

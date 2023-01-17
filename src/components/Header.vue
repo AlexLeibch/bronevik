@@ -1,10 +1,10 @@
 <template>
   <div class="control">
-    <div class="control__button arrival" @click="changeTable('Arrival')">
+    <div class="control__button" @click="changeTable('Arrival')">
       <img src="../assets/airplane_arrival.svg" />
       <span>Прилет</span>
     </div>
-    <div class="control__button departure" @click="changeTable('Departure')">
+    <div class="control__button" @click="changeTable('Departure')">
       <img src="../assets/airplane_departure.svg" />
       <span>Вылет</span>
     </div>
@@ -75,6 +75,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: black;
 
   .control__button {
     display: flex;
@@ -91,6 +92,10 @@ export default {
     font-weight: 600;
     font-size: 1.2em;
     line-height: 3rem;
+
+    img {
+      margin-right: 0.2rem;
+    }
 
     &:hover {
       background-color: blue;
@@ -124,7 +129,7 @@ export default {
     border-radius: 5px;
     padding: 10px 25px;
     font-weight: bold;
-    background: transparent;
+    background: hsla(0deg, 0%, 84.7%, 0.26);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;

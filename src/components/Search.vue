@@ -48,6 +48,9 @@ export default {
   position: relative;
   width: 100%;
 
+  input:placeholder-shown {
+    text-overflow: ellipsis;
+  }
   .search__input {
     max-width: 100%;
     height: 2.4rem;
@@ -55,7 +58,7 @@ export default {
     font-size: 1.2rem;
     padding: 0.3rem;
     background: transparent;
-    color: #7e8185;
+    color: black;
     border: 0;
     border-bottom: 2px solid #d8d8d8;
     transition-property: color;
