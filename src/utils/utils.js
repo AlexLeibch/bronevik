@@ -1,7 +1,3 @@
-export default function mockData(mockData, time = 0) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mockData);
-    }, time);
-  });
+export default function generateRandomId() {
+  return Math.floor(Math.random() * (999 - 100 + 1)) + 100;
 }

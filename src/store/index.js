@@ -11,6 +11,8 @@ const store = new Vuex.Store({
       ARRIVALS: [],
       DEPARTURES: [],
       SEARCH_QUERY: "",
+      ADMIN_RIGHTS: false,
+      POPUP_STATUS: false,
     };
   },
   mutations: {
@@ -22,6 +24,26 @@ const store = new Vuex.Store({
     },
     SET_SEARCH_QUERY(state, data) {
       state.SEARCH_QUERY = data;
+    },
+    SET_ADMIN_ROLE(state, data) {
+      state.ADMIN_RIGHTS = data;
+    },
+    SET_POPUP_STATUS(state, data) {
+      state.POPUP_STATUS = data;
+    },
+    SET_NEW_ARRIVAL_FLIGHT(state, data) {
+      state.ARRIVALS = [...state.ARRIVALS, data];
+    },
+    SET_NEW_DEPARTURE_FLIGHT(state, data) {
+      state.DEPARTURES = [...state.DEPARTURES, data];
+    },
+    DELETE_ARRIVAL_FLIGHT(state, data) {
+      state.ARRIVALS = state.ARRIVALS.filter((flight) => flight.id !== data.id);
+    },
+    DELETE_DEPARTURE_FLIGHT(state, data) {
+      state.DEPARTURES = state.DEPARTURES.filter(
+        (flight) => flight.id !== data.id
+      );
     },
   },
   actions: {
@@ -47,6 +69,12 @@ const store = new Vuex.Store({
     },
     GET_SEARCH_QUERY(state) {
       return state.SEARCH_QUERY;
+    },
+    GET_ADMIN_RIGHTS(state) {
+      return state.ADMIN_RIGHTS;
+    },
+    GET_POPUP_STATUS(state) {
+      return state.POPUP_STATUS;
     },
   },
 });

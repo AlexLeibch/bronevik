@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import FlightTable from "../views/FlightTable.vue";
+import FlightTable from "../pages/FlightTable.vue";
 import Departure from "../components/Departure.vue";
 import Arrival from "../components/Arrival.vue";
 import store from "@/store";
@@ -27,9 +27,14 @@ const router = new VueRouter({
           path: "arrival",
           name: "Arrival",
           component: Arrival,
-          props: true,
           beforeEnter: (to, from, next) => {
-            store.dispatch("FETCH_ARRIVALS", { data: arrivals, time: 1000 });
+            const storedArrivals = JSON.parse(localStorage.getItem("arrivals"));
+            if (storedArrivals.length) {
+              store.commit("SET_ARRIVALS", storedArrivals);
+            } else {
+              store.dispatch("FETCH_ARRIVALS", { data: arrivals, time: 1000 });
+            }
+
             next();
           },
         },
@@ -37,9 +42,18 @@ const router = new VueRouter({
           path: "departure",
           name: "Departure",
           component: Departure,
-          props: true,
           beforeEnter: (to, from, next) => {
-            store.dispatch("FETCH_DEPARTURES", { data: departures, time: 500 });
+            const storedDepartures = JSON.parse(
+              localStorage.getItem("departures")
+            );
+            if (storedDepartures.length) {
+              store.commit("SET_DEPARTURES", storedDepartures);
+            } else {
+              store.dispatch("FETCH_DEPARTURES", {
+                data: departures,
+                time: 500,
+              });
+            }
             next();
           },
         },

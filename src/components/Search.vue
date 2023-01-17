@@ -3,7 +3,7 @@
     <input
       v-model="searchTerm"
       type="text"
-      placeholder="Поиск"
+      placeholder="Поиск по рейсу или городу"
       class="search__input"
       @keyup.enter="setSearchQuery"
     />
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapMutations } from "vuex";
 export default {
   name: "SearchFlight",
   data() {
@@ -53,12 +53,12 @@ export default {
     height: 2.4rem;
     width: 100%;
     font-size: 1.2rem;
-    padding: 0;
+    padding: 0.3rem;
     background: transparent;
     color: #7e8185;
     border: 0;
     border-bottom: 2px solid #d8d8d8;
-    transition-property: border-color, color;
+    transition-property: color;
     transition-duration: 0.2s;
   }
 

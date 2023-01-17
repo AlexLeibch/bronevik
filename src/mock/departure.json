@@ -1,63 +1,73 @@
 {
     "departures": [
       {
+        "id": "1",
         "flight_number": "SU101",
-        "destination": "Moscow",
-        "date": "2022-07-01",
+        "destination": "Москва",
+        "date": "12.01 2022",
         "time": "09:00"
       },
       {
-        "flight_number": "SU102",
-        "destination": "Saint Petersburg",
-        "date": "2022-07-01",
+        "id": "2",
+        "flight_number": "SU118",
+        "destination": "Калининград",
+        "date": "12.01 2022",
         "time": "11:00"
       },
       {
-        "flight_number": "SU103",
-        "destination": "Kiev",
-        "date": "2022-07-02",
+        "id": "3",
+        "flight_number": "SU123",
+        "destination": "Красноярск",
+        "date": "12.01 2022",
         "time": "13:00"
       },
       {
+        "id": "4",
         "flight_number": "SU104",
-        "destination": "Minsk",
-        "date": "2022-07-02",
+        "destination": "Минск",
+        "date": "12.01 2022",
         "time": "15:00"
       },
       {
-        "flight_number": "SU105",
-        "destination": "Tbilisi",
-        "date": "2022-07-03",
+        "id": "5",
+        "flight_number": "SU102",
+        "destination": "Санкт-Петербург",
+        "date": "12.01 2022",
         "time": "17:00"
       },
       {
+        "id": "6",
         "flight_number": "SU106",
-        "destination": "Baku",
-        "date": "2022-07-03",
+        "destination": "Баку",
+        "date": "12.01 2022",
         "time": "19:00"
       },
       {
+        "id": "7",
         "flight_number": "SU107",
-        "destination": "Almaty",
-        "date": "2022-07-04",
+        "destination": "Алматы",
+        "date": "12.01 2022",
         "time": "21:00"
       },
       {
+        "id": "8",
         "flight_number": "SU108",
-        "destination": "Ashgabat",
-        "date": "2022-07-04",
+        "destination": "Краснодар",
+        "date": "12.01 2022",
         "time": "23:00"
       },
       {
+        "id": "9",
         "flight_number": "SU109",
-        "destination": "Dushanbe",
-        "date": "2022-07-05",
+        "destination": "Екатеринбург",
+        "date": "13.01 2022",
         "time": "01:00"
       },
       {
+        "id": "10",
         "flight_number": "SU110",
-        "destination": "Bishkek",
-        "date": "2022-07-05",
+        "destination": "Новосибирск",
+        "date": "13.01 2022",
         "time": "03:00"
       }
     ]

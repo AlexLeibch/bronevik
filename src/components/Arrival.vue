@@ -2,7 +2,7 @@
   <tbody>
     <flight
       v-for="arrival in filteredFlights"
-      :key="arrival.destination"
+      :key="arrival.id"
       :arrival="arrival"
     ></flight>
   </tbody>
