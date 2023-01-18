@@ -4,8 +4,9 @@ export const generateRandomId = () => {
 
 export const convertDate = (date) => {
   const dateArray = date.split("-");
-  if (!dateArray) {
+  if (dateArray.length < 2) {
     return date;
   }
+
   return `${dateArray[2]}.${dateArray[1]} ${dateArray[0]}`;
 };
