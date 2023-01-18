@@ -5,70 +5,70 @@
         "flight_number": "SU101",
         "destination": "Москва",
         "time": "10:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 2,
         "flight_number": "SU102",
         "destination": "Санкт-Петербург",
         "time": "11:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 3,
         "flight_number": "SU103",
         "destination": "Киев",
         "time": "12.00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 4,
         "flight_number": "SU104",
         "destination": "Баку",
         "time": "13:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 5,
         "flight_number": "SU105",
         "destination": "Батуми",
         "time": "14:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 6,
         "flight_number": "SU106",
         "destination": "Минск",
         "time": "15:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 7,
         "flight_number": "SU107",
         "destination": "Алматы",
         "time": "16:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 8,
         "flight_number": "SU108",
         "destination": "Ереван",
         "time": "17:00",
-        "date":"12.01 2022"
+        "date":"12.01 2023"
       },
       {
         "id": 9,
         "flight_number": "SU108",
         "destination": "Ташкент",
         "time": "21:00",
-        "date": "12.01 2022"
+        "date": "12.01 2023"
       },
       {
         "id": 10,
         "flight_number": "SU109",
         "destination": "Астана",
         "time": "22:00",
-        "date": "12.01 2022"
+        "date": "12.01 2023"
       }
     ]
 }

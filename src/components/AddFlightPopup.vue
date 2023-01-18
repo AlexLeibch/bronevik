@@ -3,10 +3,10 @@
     <form class="popup-content" @submit="saveFlight">
       <h1 class="popup-content__title">Создать рейс</h1>
       <div class="popup__date-wrapper">
-      <label class="popup-content__label"> Время и Дата: </label>
-      <input type="time" v-model="time" required />
-      <input type="date" v-model="date" required />
-    </div>
+        <label class="popup-content__label"> Время и Дата: </label>
+        <input type="time" v-model="time" required />
+        <input type="date" v-model="date" required />
+      </div>
       <label class="popup-content__label"> Номер рейса: </label>
       <input type="text" v-model="flight_number" required />
       <label class="popup-content__label"> Пункт Прилета или Вылета: </label>
@@ -102,7 +102,9 @@ export default {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     max-height: 2rem;
-    font-family: 'Inter', Times, serif;
+    padding: 0.4rem;
+    font-size: 1rem;
+    font-family: "Inter", Times, serif;
     &:focus {
       border-color: #80bdff;
       outline: 0;
@@ -137,8 +139,8 @@ export default {
 
 @media (max-width: 1024px) {
   .popup-content {
-  width: 40%;
-}
+    width: 40%;
+  }
 }
 
 @media (max-width: 625px) {

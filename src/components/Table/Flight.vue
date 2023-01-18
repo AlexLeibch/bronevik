@@ -155,4 +155,11 @@ td {
     }
   }
 }
+
+@media (max-width: 625px) {
+  input[type="date"],
+  input[type="time"] {
+    max-width: 96%;
+  }
+}
 </style>

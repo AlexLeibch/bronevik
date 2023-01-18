@@ -4,70 +4,70 @@
         "id": "1",
         "flight_number": "SU101",
         "destination": "Москва",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "09:00"
       },
       {
         "id": "2",
         "flight_number": "SU118",
         "destination": "Калининград",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "11:00"
       },
       {
         "id": "3",
         "flight_number": "SU123",
         "destination": "Красноярск",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "13:00"
       },
       {
         "id": "4",
         "flight_number": "SU104",
         "destination": "Минск",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "15:00"
       },
       {
         "id": "5",
         "flight_number": "SU102",
         "destination": "Санкт-Петербург",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "17:00"
       },
       {
         "id": "6",
         "flight_number": "SU106",
         "destination": "Баку",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "19:00"
       },
       {
         "id": "7",
         "flight_number": "SU107",
         "destination": "Алматы",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "21:00"
       },
       {
         "id": "8",
         "flight_number": "SU108",
         "destination": "Краснодар",
-        "date": "12.01 2022",
+        "date": "12.01 2023",
         "time": "23:00"
       },
       {
         "id": "9",
         "flight_number": "SU109",
         "destination": "Екатеринбург",
-        "date": "13.01 2022",
+        "date": "13.01 2023",
         "time": "01:00"
       },
       {
         "id": "10",
         "flight_number": "SU110",
         "destination": "Новосибирск",
-        "date": "13.01 2022",
+        "date": "13.01 2023",
         "time": "03:00"
       }
     ]
