@@ -1,33 +1,36 @@
 <template>
-  <div class="control">
-    <div class="control__button" @click="changeTable('/arrival')">
-      <img src="../assets/airplane_arrival.svg" />
-      <span>Прилет</span>
-    </div>
-    <div class="control__button" @click="changeTable('/departure')">
-      <img src="../assets/airplane_departure.svg" />
-      <span>Вылет</span>
-    </div>
-    <div class="control__admin-panel">
-      <div class="control__button-toggle-adimn" v-if="isFlightTable">
-        <label class="control__input-label" for="control"
-          >{{ setTitle }} Админ - панель</label
-        >
-        <input
-          class="control__input"
-          id="control"
-          type="checkbox"
-          @click="toggleAdminStatus"
-          v-model="isAdmin"
-        />
+  <div>
+    <h1 class="header__title">Расписание самолетов</h1>
+    <div class="control">
+      <div class="control__button" @click="changeTable('/arrival')">
+        <img src="../assets/airplane_arrival.svg" />
+        <span>Прилет</span>
       </div>
-      <div
-        v-if="this.$route.query.admin === 'true'"
-        class="control__add-button-wrapper"
-      >
-        <button class="control__button-add-flight" @click="openPopup">
-          Добавить Рейс
-        </button>
+      <div class="control__button" @click="changeTable('/departure')">
+        <img src="../assets/airplane_departure.svg" />
+        <span>Вылет</span>
+      </div>
+      <div class="control__admin-panel">
+        <div class="control__button-toggle-adimn" v-if="isFlightTable">
+          <label class="control__input-label" for="control"
+            >{{ setTitle }} Админ - панель</label
+          >
+          <input
+            class="control__input"
+            id="control"
+            type="checkbox"
+            @click="toggleAdminStatus"
+            v-model="isAdmin"
+          />
+        </div>
+        <div
+          v-if="this.$route.query.admin === 'true'"
+          class="control__add-button-wrapper"
+        >
+          <button class="control__button-add-flight" @click="openPopup">
+            Добавить Рейс
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -89,6 +92,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header__title {
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
 .control {
   display: flex;
   flex-wrap: wrap;
@@ -168,6 +178,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .header__title {
+    font-size: 2rem;
+  }
   .control {
     .control__button {
       flex: 0 0 100%;

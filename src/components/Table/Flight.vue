@@ -93,7 +93,7 @@ export default {
     },
     checkValidity() {
       const validity = Boolean(
-        this.time && this.date && this.number && this.destination
+        this.time && convertDate(this.date) && this.number && this.destination
       );
       if (!validity) {
         alert("Заполните все поля!");
