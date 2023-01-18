@@ -19,7 +19,7 @@
 
 <script>
 import { mapMutations } from "vuex";
-import generateRandomId from "../utils/utils";
+import { generateRandomId, convertDate } from "../utils/utils";
 export default {
   name: "FlightPopup",
   data() {
@@ -42,7 +42,7 @@ export default {
     saveFlight(e) {
       let newFlight = {
         id: generateRandomId(),
-        date: this.date.replace(/-/g, "."),
+        date: convertDate(this.date),
         time: this.time,
         destination: this.destination,
         flight_number: this.flight_number,

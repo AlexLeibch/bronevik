@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper">
-    <flight-header :isFlightTable="true"></flight-header>
+    <flight-header
+      @toggleAdminPanel="toggleAdminPanel"
+      :isFlightTable="true"
+    ></flight-header>
     <search></search>
     <button class="save-button" @click="saveData">Сохранить данные</button>
     <table class="flight-table">
@@ -52,6 +55,13 @@ export default {
       localStorage.setItem("departures", JSON.stringify(this.GET_DEPARTURES));
       localStorage.setItem("arrivals", JSON.stringify(this.GET_ARRIVALS));
       alert("Данные сохранены(в localStorage)");
+    },
+    toggleAdminPanel(isAdmin) {
+      if (isAdmin) {
+        this.$router.push({ query: { admin: "true" } });
+      } else {
+        this.$router.push({ query: { admin: "false" } });
+      }
     },
   },
   beforeRouteUpdate(to, from, next) {

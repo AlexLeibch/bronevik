@@ -47,6 +47,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import { convertDate } from "../../utils/utils.js";
 export default {
   name: "FlightSheldue",
   data() {
@@ -106,7 +107,7 @@ export default {
         const flight = {
           id: this.arrival.id,
           time: this.time,
-          date: this.date,
+          date: convertDate(this.date),
           flight_number: this.number,
           destination: this.destination,
         };

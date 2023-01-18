@@ -7,7 +7,7 @@ import store from "@/store";
 import arrivals from "../mock/arrival.json";
 import departures from "../mock/departure.json";
 import Main from "../views/Default.vue";
-import NotFound from '../views/NotFound.vue'
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 

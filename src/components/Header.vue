@@ -1,10 +1,10 @@
 <template>
   <div class="control">
-    <div class="control__button" @click="changeTable('Arrival')">
+    <div class="control__button" @click="changeTable('/arrival')">
       <img src="../assets/airplane_arrival.svg" />
       <span>Прилет</span>
     </div>
-    <div class="control__button" @click="changeTable('Departure')">
+    <div class="control__button" @click="changeTable('/departure')">
       <img src="../assets/airplane_departure.svg" />
       <span>Вылет</span>
     </div>
@@ -17,11 +17,14 @@
           class="control__input"
           id="control"
           type="checkbox"
-          @click="toggleAdminStatue"
+          @click="toggleAdminStatus"
           v-model="isAdmin"
         />
       </div>
-      <div v-if="GET_ADMIN_RIGHTS" class="control__add-button-wrapper">
+      <div
+        v-if="this.$route.query.admin === 'true'"
+        class="control__add-button-wrapper"
+      >
         <button class="control__button-add-flight" @click="openPopup">
           Добавить Рейс
         </button>
@@ -59,19 +62,28 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_ADMIN_ROLE", "SET_POPUP_STATUS"]),
-    changeTable(table) {
-      if (this.$route.name === table) {
-        return;
+    changeTable(path) {
+      if (this.$route.path !== `/flight_table${path}`) {
+        this.$router.push({
+          path: `/flight_table${path}`,
+          query: { admin: this.$route.query.admin },
+        });
       }
-      this.$router.push({ name: table });
     },
     openPopup() {
       this.SET_POPUP_STATUS(true);
     },
-    toggleAdminStatue() {
+    toggleAdminStatus() {
       this.isAdmin = !this.isAdmin;
+      this.$emit("toggleAdminPanel", this.isAdmin);
       this.SET_ADMIN_ROLE(this.isAdmin);
     },
+  },
+  mounted() {
+    if (this.$route.query.admin === "true") {
+      this.isAdmin = true;
+      this.SET_ADMIN_ROLE(true);
+    }
   },
 };
 </script>
@@ -117,6 +129,7 @@ export default {
 
     .control__input {
       margin-left: 0.2rem;
+      cursor: pointer;
     }
   }
 
@@ -129,50 +142,29 @@ export default {
 .control__add-button-wrapper {
   align-self: center;
   margin-top: 1rem;
-  .control__button-add-flight {
-    width: 130px;
-    height: 50px;
-    border-radius: 5px;
-    padding: 10px 25px;
-    font-weight: bold;
-    background: hsla(0deg, 0%, 84.7%, 0.26);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 249, 249, 0.5),
-      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-    outline: none;
-  }
+}
 
-  .control__button-add-flight {
-    border: none;
-    color: #000;
-  }
-  .control__button-add-flight:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    left: 0;
-    direction: rtl;
-    z-index: -1;
-    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-      7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-    transition: all 0.3s ease;
-  }
-  .control__button-add-flight:hover {
-    color: rgb(12, 1, 1);
-  }
-  .control__button-add-flight:hover:after {
-    left: auto;
-    right: 0;
-    width: 100%;
-  }
-  .control__button-add-flight:active {
-    top: 2px;
-  }
+.control__button-add-flight {
+  position: relative;
+  padding: 0.2rem 1rem;
+  float: left;
+  border-radius: 10px;
+  font-family: "Pacifico", cursive;
+  font-size: 1rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.blue {
+  background-color: hsla(0deg, 0%, 84.7%, 0.26);
+  border-bottom: 5px solid hsla(0deg, 0%, 84.7%, 0.26);
+  text-shadow: 0px -2px hsla(0deg, 0%, 84.7%, 0.26);
+}
+
+.control__button-add-flight:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  border-bottom: 1px solid;
 }
 
 @media (max-width: 768px) {
