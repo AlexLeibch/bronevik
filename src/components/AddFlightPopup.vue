@@ -2,7 +2,7 @@
   <div class="popup-overlay">
     <form class="popup-content" @submit="saveFlight">
       <h1 class="popup-content__title">Создать рейс</h1>
-      <div>
+      <div class="popup__date-wrapper">
       <label class="popup-content__label"> Время и Дата: </label>
       <input type="time" v-model="time" required />
       <input type="date" v-model="date" required />
@@ -85,6 +85,10 @@ export default {
   border-radius: 10px;
   text-align: center;
 
+  .popup__date-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
   .popup-content__label {
     font-size: 1rem;
     font-weight: bold;
