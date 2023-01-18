@@ -2,9 +2,11 @@
   <div class="popup-overlay">
     <form class="popup-content" @submit="saveFlight">
       <h1 class="popup-content__title">Создать рейс</h1>
+      <div>
       <label class="popup-content__label"> Время и Дата: </label>
       <input type="time" v-model="time" required />
       <input type="date" v-model="date" required />
+    </div>
       <label class="popup-content__label"> Номер рейса: </label>
       <input type="text" v-model="flight_number" required />
       <label class="popup-content__label"> Пункт Прилета или Вылета: </label>
@@ -75,12 +77,13 @@ export default {
 
 /* Popup Content */
 .popup-content {
-  width: 50%;
+  width: 30%;
   background-color: #fff;
   display: flex;
   padding: 1em;
   flex-direction: column;
   border-radius: 10px;
+  text-align: center;
 
   .popup-content__label {
     font-size: 1rem;
@@ -95,6 +98,7 @@ export default {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     max-height: 2rem;
+    font-family: 'Inter', Times, serif;
     &:focus {
       border-color: #80bdff;
       outline: 0;
@@ -127,7 +131,19 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 525px) {
+@media (max-width: 1024px) {
+  .popup-content {
+  width: 40%;
+}
+}
+
+@media (max-width: 625px) {
+  .popup-content {
+    width: 75%;
+  }
+}
+
+@media (max-width: 420px) {
   .popup-content {
     width: 94%;
   }
